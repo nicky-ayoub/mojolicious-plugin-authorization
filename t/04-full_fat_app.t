@@ -39,11 +39,6 @@ sub startup {
     ->to('Public#eat_cake')
   ;
 
-  $self->routes->any('/cake/eat')
-    ->requires(is_role => 'chef')
-    ->to('Public#make_cake')
-  ;
-
   $self->routes->any('/cake/letthem')
     ->requires(is_role => ['chef', {'eat' => 'brioche'}])
     ->to('Public#make_cake')
